@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="isListEmpty"
+            type="boolean"/>
+
+        <variable
+            name="callback"
+            type="com.mwiblo.yotasks.ui.tasks.AddTaskCallback"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/tasks_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            app:show="@{!isListEmpty}">
+        </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:show="@{isListEmpty}"
+            android:text="@string/no_tasks"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="16sp"/>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/ic_add"
+            android:tint="@android:color/white"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="@{() -> callback.onClick()}"/>
+    </FrameLayout>
+
+</layout>

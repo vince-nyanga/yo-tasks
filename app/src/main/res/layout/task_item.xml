@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="task"
+            type="com.mwiblo.yotasks.db.entity.Task"/>
+        <variable
+            name="callback"
+            type="com.mwiblo.yotasks.ui.tasks.TaskClickListener"/>
+    </data>
+
+    <RelativeLayout
+        android:padding="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="64dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> callback.onClick(task)}">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:date="@{task.dateCreated}"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:layout_below="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{task.name}"
+            style="@style/TextAppearance.AppCompat.Title"/>
+    </RelativeLayout>
+</layout>
