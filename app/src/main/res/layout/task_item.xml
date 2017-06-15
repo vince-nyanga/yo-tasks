@@ -12,7 +12,10 @@
     </data>
 
     <RelativeLayout
-        android:padding="16dp"
+        android:paddingStart="16dp"
+        android:paddingLeft="16dp"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp"
         android:background="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +31,8 @@
             app:date="@{task.dateCreated}"
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"/>
 
         <TextView
             android:layout_below="@+id/date"
@@ -37,5 +41,10 @@
             android:layout_marginTop="8dp"
             android:text="@{task.name}"
             style="@style/TextAppearance.AppCompat.Title"/>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#cccccc"/>
     </RelativeLayout>
 </layout>

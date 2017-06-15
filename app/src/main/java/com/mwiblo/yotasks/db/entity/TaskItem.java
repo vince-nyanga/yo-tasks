@@ -17,7 +17,6 @@ foreignKeys = {
 indices = {
         @Index(value = "taskId")
 })
-
 public class TaskItem {
 
     @PrimaryKey(autoGenerate = true)
